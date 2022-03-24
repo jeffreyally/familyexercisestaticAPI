@@ -20,6 +20,7 @@ class FamilyStructure:
         return randint(0, 99999999)
 
     def add_member(self, member):
+        member['id'] = self._generateId()
         self._members.append(member)
         return self._members#might be an error. I thought append doesn't return anything
 
@@ -29,8 +30,9 @@ class FamilyStructure:
                 self._members.pop(i)
 
     def get_member(self, id):
-        for members in self._members:
-            return members.id #I need to review when to use [] vs . notation for python
+        for member in self._members:
+            if member['id'] == id:
+                return member 
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
