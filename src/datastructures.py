@@ -20,16 +20,17 @@ class FamilyStructure:
         return randint(0, 99999999)
 
     def add_member(self, member):
-        # fill this method and update the return
-        pass
+        self._members.append(member)
+        return self._members#might be an error. I thought append doesn't return anything
 
     def delete_member(self, id):
-        # fill this method and update the return
-        pass
+        for i in range(len(self._members)):
+            if self._members[i]['id'] == id:
+                self._members.pop(i)
 
     def get_member(self, id):
-        # fill this method and update the return
-        pass
+        for members in self._members:
+            return members.id #I need to review when to use [] vs . notation for python
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
